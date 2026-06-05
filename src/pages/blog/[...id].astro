@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+// Génération des chemins statiques requis par Astro pour chaque fichier détecté
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={`${post.data.title} | Alain Didier Noutchegueme`}>
+  <div class="fixed top-0 inset-x-0 h-[800px] bg-gradient-to-b from-zinc-50 to-transparent z-[-2] pointer-events-none"></div>
+  <div class="fixed inset-0 z-[-1] opacity-[0.015] pointer-events-none mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
+
+  <main class="max-w-[680px] mx-auto px-6 py-24 md:py-32">
+    <a href={`${import.meta.env.BASE_URL}blog`} class="group inline-flex items-center text-xs font-mono tracking-widest text-zinc-400 hover:text-zinc-900 mb-16 transition-colors uppercase">
+      <svg class="w-3 h-3 mr-2 opacity-50 group-hover:opacity-100 group-hover:-translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+      Retour aux archives
+    </a>
+
+    <header class="mb-16 border-b border-zinc-200 pb-8">
+      <span class="text-xs font-mono text-zinc-400 uppercase tracking-wider block mb-3">
+        {post.data.publishDate.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </span>
+      <h1 class="text-3xl md:text-4xl font-medium text-zinc-900 tracking-tight leading-tight mb-4">
+        {post.data.title}
+      </h1>
+      <p class="text-lg text-zinc-500 font-light leading-relaxed">
+        {post.data.description}
+      </p>
+    </header>
+
+    <article class="prose prose-zinc max-w-none text-zinc-800 font-light leading-relaxed space-y-6 text-[1.05rem]">
+      <Content />
+    </article>
+  </main>
+</Layout>

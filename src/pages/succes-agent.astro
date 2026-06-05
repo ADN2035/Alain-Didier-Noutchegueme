@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Accès Accordé | Démonstration Agent Autonome">
+  <main class="max-w-[800px] mx-auto px-6 py-24 md:py-32 min-h-screen flex flex-col justify-center">
+
+    <div class="mb-12 text-center">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-zinc-100 rounded-full mb-6">
+        <svg class="w-8 h-8 text-zinc-900" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      </div>
+      <h1 class="text-3xl font-medium text-zinc-900 tracking-tight mb-4">Architecture déverrouillée</h1>
+      <p class="text-zinc-600 font-light leading-relaxed max-w-2xl mx-auto">
+        Votre requête a été validée. Pour des raisons de sécurité liées à l'exécution de code arbitraire et à la consommation des interfaces de programmation, l'environnement de test direct est restreint. Voici la documentation visuelle de l'architecture en conditions réelles.
+      </p>
+    </div>
+
+    <!-- Espace Vidéo de Démonstration -->
+    <div class="w-full aspect-video rounded-2xl overflow-hidden border border-zinc-200/80 shadow-lg bg-zinc-900 mb-12 relative group">
+      <!-- Placeholder de fond -->
+      <div class="absolute inset-0 flex items-center justify-center text-zinc-500 font-mono text-xs uppercase tracking-widest z-0">
+        [Insérer iframe YouTube Non Répertorié ici]
+      </div>
+      <!-- Décommente ce bloc quand ta vidéo sera prête -->
+      <!--
+      <iframe
+        class="absolute top-0 left-0 w-full h-full z-10"
+        src="https://www.youtube.com/embed/TON_ID_VIDEO"
+        title="Démonstration Agent Autonome Kemetica"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+      -->
+    </div>
+
+    <!-- Appel à l'action : Réservation Live (Calendly / Cal.com) -->
+    <div class="p-8 rounded-[2rem] bg-zinc-50 border border-zinc-200/60 text-center">
+      <h2 class="text-xl font-medium text-zinc-900 mb-3">Évaluation technique approfondie</h2>
+      <p class="text-sm text-zinc-600 font-light mb-8 max-w-lg mx-auto leading-relaxed">
+        Si la modélisation structurelle présentée dans cette démonstration correspond à vos enjeux, nous pouvons planifier un déploiement interactif en direct sur votre propre jeu de données.
+      </p>
+      <a href="https://calendly.com/TON_LIEN" target="_blank" class="inline-flex items-center px-8 py-4 bg-zinc-900 text-white rounded-xl font-medium hover:bg-zinc-800 transition-all shadow-md hover:shadow-lg">
+        <svg class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+        Planifier un environnement de test
+      </a>
+    </div>
+
+    <div class="mt-16 text-center">
+      <a href="/" class="inline-block text-xs font-mono tracking-widest text-zinc-400 hover:text-zinc-900 transition-colors uppercase">
+        ← Retourner à l'accueil
+      </a>
+    </div>
+
+  </main>
+</Layout>

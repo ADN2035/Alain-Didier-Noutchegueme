@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Accès Accordé | Rapport IA 2025">
+  <main class="max-w-[600px] mx-auto px-6 py-32 md:py-48 min-h-screen flex flex-col justify-center items-center text-center">
+    
+    <div class="w-16 h-16 bg-zinc-100 rounded-full flex items-center justify-center mb-8">
+      <svg class="w-8 h-8 text-zinc-900" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+    </div>
+
+    <h1 class="text-3xl font-medium text-zinc-900 tracking-tight mb-4">Requête traitée</h1>
+    <p class="text-zinc-600 font-light leading-relaxed mb-12">
+      Votre demande a été enregistrée. Le rapport macroéconomique est prêt pour l'extraction. Si votre profil correspond à nos critères d'intervention, nous prendrons contact avec vous.
+    </p>
+
+    <!-- Lien de téléchargement forcé (attribut download) -->
+    <a href="/rapport-ia-2025.pdf" download="ADN_Rapport_IA_2025.pdf" class="inline-flex items-center px-8 py-4 bg-zinc-900 text-white rounded-xl font-medium hover:bg-zinc-800 transition-all shadow-lg hover:shadow-xl">
+      <svg class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+      Télécharger le document
+    </a>
+
+    <a href="/" class="mt-12 text-xs font-mono tracking-widest text-zinc-400 hover:text-zinc-900 transition-colors uppercase">
+      ← Retourner à l'accueil
+    </a>
+
+  </main>
+</Layout>

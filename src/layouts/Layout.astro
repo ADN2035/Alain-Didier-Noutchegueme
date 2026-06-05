@@ -1,0 +1,120 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: string;
+  robots?: string;
+}
+
+const defaultTitle = "Alain Didier Noutchegueme | Penseur & Concepteur de Systèmes";
+const defaultDescription = "Extraire les structures sous-jacentes du chaos. Recherche en géométrie spectrale, stratégie d'intelligence artificielle et ingénierie de la cognition.";
+const defaultImage = "/AlainDidier2.jpg";
+
+const { 
+  title = defaultTitle, 
+  description = defaultDescription, 
+  image = defaultImage,
+  type = "website",
+  robots = "index, follow"
+} = Astro.props;
+
+// Résolution de l'URL absolue (Obligatoire pour les réseaux sociaux)
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
+const resolvedImage = new URL(image, Astro.site || Astro.url);
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- HYGIÈNE D'INDEXATION -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- PROTOCOLE OPEN GRAPH (LinkedIn, Slack, Discord) -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={resolvedImage} />
+    <meta property="og:site_name" content="Alain Didier Noutchegueme" />
+
+    <!-- TWITTER CARDS (X) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={resolvedImage} />
+
+    <slot name="head" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="384ea5cf-8094-4727-8a7e-c8b7260fc32a"></script>
+    <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+  </head>
+  <body class="bg-zinc-50 text-zinc-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900 relative">
+    
+    <button id="menu-toggle" class="fixed top-6 left-6 z-[60] p-3 rounded-full bg-white/60 backdrop-blur-md border border-zinc-200/50 shadow-sm hover:bg-white transition-all text-zinc-600 hover:text-zinc-900 focus:outline-none">
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+
+    <div id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-white/85 backdrop-blur-2xl border-r border-zinc-200/60 shadow-2xl transform -translate-x-full transition-transform duration-500 ease-out flex flex-col pt-24 pb-8 px-8">
+      
+      <div class="mb-10">
+        <span class="text-[10px] font-mono font-bold text-zinc-900 tracking-[0.25em] uppercase">A.D.N.</span>
+      </div>
+
+      <nav class="flex-1 flex flex-col gap-5 text-[0.95rem] font-medium text-zinc-500">
+        <a href="/" class="hover:text-zinc-900 transition-colors">Accueil</a>
+        <a href="/manifeste" class="hover:text-zinc-900 transition-colors">Ma vision du monde</a>
+        
+        <div class="h-px w-full bg-zinc-200/60 my-2"></div>
+        
+        <a href="/consultation" class="hover:text-zinc-900 transition-colors">Stratégie IA (Kemetica)</a>
+        <a href="/recherche" class="hover:text-zinc-900 transition-colors">Géométrie Spectrale</a>
+        
+        <div class="h-px w-full bg-zinc-200/60 my-2"></div>
+        
+        <a href="/education" class="hover:text-zinc-900 transition-colors">Éducation et Évènements</a>
+        <a href="/vulgarisation" class="hover:text-zinc-900 transition-colors">Vulgarisation Scientifique</a>
+        <a href="/blog" class="hover:text-zinc-900 transition-colors">Blog Personnel</a>
+      </nav>
+
+      <div class="mt-auto border-t border-zinc-200/60 pt-6">
+        <a href="/cv.pdf" target="_blank" class="group flex items-center justify-between text-xs font-mono font-bold text-zinc-900 tracking-widest uppercase hover:text-blue-600 transition-colors">
+          <span>Curriculum Vitae</span>
+          <svg class="w-4 h-4 text-zinc-400 group-hover:text-blue-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div id="sidebar-overlay" class="fixed inset-0 bg-zinc-900/10 backdrop-blur-[2px] z-40 opacity-0 pointer-events-none transition-opacity duration-500"></div>
+
+    <slot />
+
+    <script is:inline>
+      const toggle = document.getElementById('menu-toggle');
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      let isOpen = false;
+
+      function toggleMenu() {
+        isOpen = !isOpen;
+        if (isOpen) {
+          sidebar.classList.remove('-translate-x-full');
+          overlay.classList.remove('opacity-0', 'pointer-events-none');
+          overlay.classList.add('opacity-100', 'pointer-events-auto');
+        } else {
+          sidebar.classList.add('-translate-x-full');
+          overlay.classList.remove('opacity-100', 'pointer-events-auto');
+          overlay.classList.add('opacity-0', 'pointer-events-none');
+        }
+      }
+
+      toggle.addEventListener('click', toggleMenu);
+      overlay.addEventListener('click', toggleMenu);
+    </script>
+  </body>
+</html>
