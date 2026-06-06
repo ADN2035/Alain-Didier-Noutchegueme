@@ -3,8 +3,12 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://adn2035.github.io/Alain-Didier-Noutchegueme/',
-  base: '/infrastructure-web',
+  // Ton sous-domaine GitHub racine
+  site: 'https://ADN2035.github.io',
+  
+  // Le nom exact de ton dépôt
+  base: '/Alain-Didier-Noutchegueme',
+  
   integrations: [
     tailwind(),
     sitemap()
