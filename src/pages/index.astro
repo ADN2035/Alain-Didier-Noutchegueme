@@ -2,8 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 
 // Résolution dynamique des chemins pour correspondre au paramètre 'base'
-const basePath = import.meta.env.BASE_URL;
-const url = (path: string) => `${basePath}${path.replace(/^\//, '')}`;
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+const url = (path: string) => `${basePath}/${path.replace(/^\//, '')}`;
 ---
 
 <Layout title="Alain Didier Noutchegueme | Chercheur, Stratège IA, Écrivain">
