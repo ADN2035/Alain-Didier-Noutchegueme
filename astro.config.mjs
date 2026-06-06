@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://ton-pseudo.github.io',
+  site: 'https://adn2035.github.io',
   base: '/infrastructure-web',
   integrations: [
     tailwind(),
