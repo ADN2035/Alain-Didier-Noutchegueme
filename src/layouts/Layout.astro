@@ -21,14 +21,14 @@ const {
 
 // Résolution de l'URL absolue (Obligatoire pour les réseaux sociaux)
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
-const resolvedImage = new URL(url(image), Astro.site || Astro.url);
+const resolvedImage = new URL(image, Astro.site || Astro.url);
 ---
 <!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href={url("/Alain-Didier-Noutchegueme/favicon.svg")} />
+    <link rel="icon" type="image/svg+xml" href="/Alain-Didier-Noutchegueme/favicon.svg" />
     
     <!-- HYGIÈNE D'INDEXATION -->
     <title>{title}</title>
