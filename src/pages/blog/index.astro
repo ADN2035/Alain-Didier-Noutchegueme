@@ -4,6 +4,10 @@ import { getCollection } from 'astro:content';
 
 const posts = await getCollection('blog');
 const sortedPosts = posts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+// Injection de l'équation de routage
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+const url = (path: string) => `${basePath}/${path.replace(/^\//, '')}`;
 ---
 
 <Layout title="Blog Personnel | Alain Didier Noutchegueme">

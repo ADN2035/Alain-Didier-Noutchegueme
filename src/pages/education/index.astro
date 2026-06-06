@@ -1,5 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+// Injection de l'équation de routage
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+const url = (path: string) => `${basePath}/${path.replace(/^\//, '')}`;
 ---
 
 <Layout title="Éducation & Transmission | Alain Didier Noutchegueme">
