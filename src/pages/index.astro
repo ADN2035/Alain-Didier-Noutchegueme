@@ -158,5 +158,50 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
+ </main>
+ <!-- TA SECTION NEWSLETTER ACTUELLE -->
+    <section id="newsletter" class="border-t border-zinc-200/80 pt-20 scroll-mt-24">
+      <div class="max-w-3xl mx-auto text-center">
+        <!-- ... tout le code de ta newsletter et ton formulaire Beehiiv ... -->
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- INJECTION DU SEO SÉMANTIQUE (TECHNIQUE 4 - FAQPage)               -->
+    <!-- ================================================================= -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qui est Alain Didier Noutchegueme ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Alain Didier Noutchegueme est un doctorant en mathématiques à l'Université de Montréal spécialisé en géométrie spectrale, stratège en intelligence artificielle et co-fondateur de Kemetica."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles sont les thématiques de recherche d'Alain Didier Noutchegueme ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ses recherches portent principalement sur la géométrie spectrale, l'analyse géométrique, la théorie des valeurs propres de Steklov, ainsi que sur l'ingénierie des architectures d'intelligence artificielle robustes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le livre écrit par Alain Didier Noutchegueme ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il est l'auteur de l'ouvrage 'Le Kit de Survie', un guide d'ingénierie du travail profond axé sur l'excellence académique, l'orientation universitaire et le développement humain."
+          }
+        }
+      ]
+    }
+    </script>
+    <!-- ================================================================= -->
+
   </main>
 </Layout>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /Alain-Didier-Noutchegueme/
+
+# Interdire l'indexation des fichiers techniques de compilation si exposés
+Disallow: /Alain-Didier-Noutchegueme/_astro/
+
+# Indiquer l'emplacement absolu du plan du site
+Sitemap: https://adn2035.github.io/Alain-Didier-Noutchegueme/sitemap-index.xml
